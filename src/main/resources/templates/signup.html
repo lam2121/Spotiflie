@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotiflie</title>
+
+    <link rel="stylesheet" href="/css/login-signup.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="/images/logo.png">
+    </div>
+    <h1>Sign up to start listening</h1>
+    <form>
+
+        <div class="input-box">
+            <label>Email</label>
+            <input type="text" placeholder="Enter your email">
+        </div>
+
+        <button type="submit" class="login-btn">
+            Next
+        </button>
+
+    </form>
+
+    <div class="divider">
+        <span>or</span>
+    </div>
+    <div class="social-login">
+        <button class="social-btn" onclick="window.location.href='/oauth2/authorization/google'">
+            Login with Google
+        </button>
+
+        <button class="social-btn">
+            Continue with Facebook
+        </button>
+
+        <button class="social-btn">
+            Continue with Apple
+        </button>
+
+    </div>
+    <div class="login">
+        <p>Already have an account?</p>
+        <a href="/Login">Log in</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+
+<header th:fragment="header" class="header">
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo">
+    </div>
+
+    <nav class="nav">
+        <a href="/Home" th:onclick="|loadContent('/home-content'); return false;|" class="home-btn"><i class="fa-solid fa-house"></i></a>
+    </nav>
+
+    <div class="search-container">
+        <input id="searchInput" type="text" placeholder="What do you want to play?">
+        <button id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+
+    <div class="header-actions">
+
+        <a href="#" class="install-btn">
+            <i class="fa-regular fa-circle-down"></i>
+            Install App
+        </a>
+
+        <i th:if="${userPicture != null}"
+           class="fa-regular fa-bell header-icon"></i>
+
+        <i th:if="${userPicture != null}"
+           class="fa-solid fa-user-group header-icon"></i>
+
+        <div class="auth-buttons" th:if="${userPicture == null}">
+            <a href="/Signup" class="signup-btn">Sign up</a>
+            <a href="/Login" class="login-btn">
+                Log in
+            </a>
+        </div>
+
+        <div class="profile-menu" th:if="${userPicture != null}">
+
+            <button class="avatar-btn" id="avatarBtn">
+                <img th:src="${userPicture}" class="avatar" alt="Avatar">
+                <span class="user-name"
+                      th:text="${userName}">
+                    User
+                </span>
+            </button>
+
+            <div class="dropdown" id="profileDropdown">
+                <a href="#">
+                    Account
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="/profile">Profile</a>
+                <a href="#">Recents</a>
+
+                <a href="#">
+                    Support
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="#">
+                    Download
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="/settings">Settings</a>
+                <a href="/logout">Log out</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>

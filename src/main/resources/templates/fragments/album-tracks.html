@@ -1,0 +1,73 @@
+<div class="album-page" xmlns:th="http://www.thymeleaf.org">
+
+    <section class="album-header">
+        <img class="album-cover"
+             th:src="${album != null ? album.imageUrl : ''}"
+             alt="Album cover">
+
+        <div class="album-info">
+            <p>Album</p>
+
+            <h1 th:text="${album != null ? album.name : 'Unknown Album'}">
+                Album Name
+            </h1>
+
+            <p>
+                Spotify •
+                <span th:text="${tracks != null ? #lists.size(tracks) : 0}">0</span>
+                songs
+            </p>
+        </div>
+    </section>
+
+    <section class="album-actions">
+        <button class="album-play-btn" type="button">
+            <i class="fa-solid fa-play"></i>
+        </button>
+
+        <button class="album-more-btn" type="button">
+            <i class="fa-solid fa-ellipsis"></i>
+        </button>
+    </section>
+
+    <section class="album-content">
+
+        <div class="album-track-head">
+            <span>#</span>
+            <span>Title</span>
+            <span>Album</span>
+            <span>Time</span>
+        </div>
+
+        <div class="album-track-row"
+             th:each="track, stat : ${tracks}"
+             th:data-track-id="${track.id}"
+             th:onclick="|playTrack(this.dataset.trackId)|">
+
+            <span class="track-index" th:text="${stat.index + 1}">1</span>
+
+            <div class="track-title">
+                <img th:src="${track.imageUrl != null && track.imageUrl != '' ? track.imageUrl : album.imageUrl}"
+                     alt="Track image">
+
+                <div class="track-text">
+                    <h4 th:text="${track.name}">Track name</h4>
+                    <p th:text="${track.artistName}">Artist name</p>
+                </div>
+            </div>
+
+            <span class="track-album-name"
+                  th:text="${album != null ? album.name : 'Unknown Album'}">
+                Album name
+            </span>
+
+            <span class="track-duration"
+                  th:text="${track.duration}">
+    durationMs
+</span>
+
+        </div>
+
+    </section>
+
+</div>

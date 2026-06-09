@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotiflie</title>
+    <link rel="stylesheet" href="/css/artist.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/spotify.css">
+    <link rel="stylesheet" href="/css/album-tracks.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+<div th:replace="fragments/sidebar :: sidebar"></div>
+
+<div class="container">
+    <main id="content" class="main-content">
+        <section th:if="${spotifyConnected==false}" class="spotify-connect">
+            <h1>Welcome to Spotiflie 🎵</h1>
+            <p>
+                Connect your Spotify account to access your playlists,
+                favorite songs and listening history.
+            </p>
+
+            <a href="/spotify/login" class="spotify-btn">
+                <i class="fa-brands fa-spotify"></i>
+                Connect to Spotify
+            </a>
+        </section>
+        <th:block th:if="${spotifyConnected==true}">
+            <section class="spotify-home"
+                     th:replace="fragments/home">
+            </section>
+        </th:block>
+    </main>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script th:inline="javascript">
+    window.SPOTIFY_TOKEN = [[${spotifyToken}]];
+    window.topTrackIds = [
+        /*[# th:each="track : ${topTracks}"]*/
+        "[(${track.id})]",
+        /*[/]*/
+    ];
+</script>
+
+<!-- Nên để SDK trước index.js -->
+<script src="https://sdk.scdn.co/spotify-player.js"></script>
+<script src="/js/router.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+.album-page {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    padding-bottom: 120px;
+    background: #121212;
+    color: white;
+    overflow-x: hidden;
+}
+
+.album-header {
+    min-height: 330px;
+    padding: 32px;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+    background: linear-gradient(180deg, #c77a52 0%, #651600 100%);
+}
+
+.album-cover {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+
+.album-info h1 {
+    color: white;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 900;
+    margin: 8px 0;
+}
+
+.album-info p,
+.album-info span {
+    color: #e6e6e6;
+}
+
+.album-actions {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    padding: 28px 32px;
+    background: linear-gradient(180deg, #4b1207 0%, #121212 100%);
+}
+
+.album-play-btn {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: none;
+    background: #1ed760;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.album-more-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 32px;
+}
+
+.album-content {
+    padding: 0 32px;
+}
+
+.album-track-head,
+.album-track-row {
+    display: grid;
+    grid-template-columns: 40px minmax(300px, 2fr) minmax(180px, 1fr) 80px;
+    align-items: center;
+    gap: 16px;
+}
+
+.album-track-head {
+    height: 42px;
+    padding: 0 18px;
+    color: #b3b3b3;
+    border-bottom: 1px solid #2a2a2a;
+    font-size: 14px;
+}
+
+.album-track-row {
+    min-height: 64px;
+    padding: 0 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.album-track-row:hover {
+    background: #2a2a2a;
+}
+
+.track-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.track-title img {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.track-title h4 {
+    color: white;
+    margin: 0 0 4px;
+    font-size: 16px;
+}
+
+.track-title p,
+.track-album-name,
+.track-duration,
+.track-index {
+    color: #b3b3b3;
+    margin: 0;
+}
+
+.track-duration {
+    text-align: right;
+}
+.track-title img {
+    width: 46px !important;
+    height: 46px !important;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}

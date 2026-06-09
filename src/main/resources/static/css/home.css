@@ -1,0 +1,112 @@
+.container{
+    display:flex;
+    margin-top:80px;
+    padding:8px;
+    gap:8px;
+}
+
+.main-content{
+    margin-left:348px;
+
+    flex:1;
+
+    background:#121212;
+
+    border-radius:12px;
+
+    padding:24px;
+
+    min-height:calc(100vh - 88px);
+
+    overflow-y:auto;
+}
+.greeting h1{
+    color:white;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:30px;
+}
+.music-section h2{
+    color:white;
+    margin-bottom:20px;
+}
+.card-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(180px,1fr));
+
+    gap:20px;
+}
+.music-card{
+    background:#181818;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.music-card:hover{
+    background:#282828;
+}
+
+.music-card img{
+    width:100%;
+
+    border-radius:8px;
+
+    margin-bottom:12px;
+}
+
+.music-card h3{
+    color:white;
+    font-size:15px;
+
+    margin-bottom:6px;
+}
+
+.music-card p{
+    color:#b3b3b3;
+    font-size:13px;
+}
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+.artist-card {
+    background: #181818;
+    padding: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.artist-card:hover {
+    background: #282828;
+}
+
+.artist-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* hình tròn */
+    object-fit: cover; /* tránh méo ảnh */
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.artist-card h3 {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.artist-card p {
+    color: #b3b3b3;
+    font-size: 13px;
+}

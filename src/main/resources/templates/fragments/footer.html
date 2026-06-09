@@ -1,0 +1,38 @@
+<footer th:fragment="footer" class="player-footer">
+    <div class="player-left">
+        <img id="footer-cover" src="/images/default-cover.png" alt="cover">
+
+        <div class="song-info">
+            <h4 id="footer-title">Chưa phát bài nào</h4>
+            <p id="footer-artist">Spotiflie</p>
+        </div>
+
+        <button class="icon-btn">＋</button>
+    </div>
+
+    <div class="player-center">
+        <div class="controls">
+            <button class="icon-btn">🔀</button>
+            <button class="icon-btn" onclick="previousTrack()">⏮</button>
+            <button id="play-btn" class="play-btn" onclick="togglePlay()">⏯</button>
+            <button class="icon-btn" onclick="nextTrack()">⏭</button>
+            <button id="repeat-btn" class="icon-btn">🔁</button>
+        </div>
+
+        <div class="progress-row">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" value="0" min="0" max="100">
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+
+    <div class="player-right">
+        <button class="icon-btn">🎤</button>
+        <button class="icon-btn">☰</button>
+        <button class="icon-btn">💻</button>
+        <button class="icon-btn">🔊</button>
+        <input type="range" id="volume-bar" min="0" max="100" value="50">
+        <button class="icon-btn">⛶</button>
+    </div>
+</footer>
+

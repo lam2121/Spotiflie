@@ -1,0 +1,38 @@
+<div class="artist-page" xmlns:th="http://www.thymeleaf.org">
+
+    <section class="artist-header"
+             th:style="|background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.8)), url('${artist.imageUrl}')|">
+
+        <div class="artist-info">
+            <p class="verified">✔ Verified Artist</p>
+
+            <h1 th:text="${artist != null ? artist.name : 'Unknown Artist'}">
+                Artist Name
+            </h1>
+
+            <p>Artist</p>
+        </div>
+
+    </section>
+
+    <section class="actions">
+        <button class="play-btn">▶</button>
+        <button class="follow-btn">Follow</button>
+        <button class="more-btn">...</button>
+    </section>
+
+    <section class="discography">
+        <div class="section-head">
+            <h2>Discography</h2>
+            <a href="#">Show all</a>
+        </div>
+
+        <div class="album-list">
+            <div class="album-card" th:each="album : ${albums}" th:data-album-id="${album.id}" th:onclick="|loadAlbumTracks(this)|">
+                <img th:src="${album.imageUrl}" alt="album">
+                <h3 th:text="${album.name}">Album name</h3>
+            </div>
+        </div>
+    </section>
+
+</div>

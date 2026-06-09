@@ -1,0 +1,54 @@
+ <div class="greeting">
+        <h1>Good Morning</h1>
+        <p>Listen to your favorite music today</p>
+        <div id="searchResults"></div>
+ </div>
+
+    <section class="music-section">
+        <div class="section-header">
+            <h2>Your Playlists</h2>
+        </div>
+
+        <div class="card-grid">
+            <div class="music-card" th:each="playlist : ${playlists}">
+                <img th:src="${playlist.imageUrl}" alt="Playlist">
+                <h3 th:text="${playlist.name}"></h3>
+                <p th:text="${playlist.subtitle}"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="music-section">
+        <div class="section-header">
+            <h2>🔥 Your Top Tracks</h2>
+        </div>
+
+        <div class="card-grid">
+            <div class="music-card"
+                 th:each="track, stat : ${topTracks}"
+                 th:data-track-id="${track.id}"
+                 th:onclick="|playTrackByIndex(this, ${stat.index})|">
+
+                <img th:src="${track.imageUrl}" alt="Track">
+                <h3 th:text="${track.name}"></h3>
+                <p th:text="${track.artistName}"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="music-section">
+        <div class="section-header">
+            <h2>🎤 Favorite Artists</h2>
+        </div>
+
+        <div class="artist-grid">
+            <div class="artist-card"
+                 th:each="artist : ${topArtists}"
+                 th:data-artist-id="${artist.id}"
+                 th:onclick="|renderArtists(this)|">
+
+                <img th:src="${artist.imageUrl}" alt="Artist">
+                <h3 th:text="${artist.name}"></h3>
+            </div>
+        </div>
+    </section>

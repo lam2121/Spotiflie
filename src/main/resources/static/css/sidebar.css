@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    font-family:Arial, sans-serif;
+}
+
+/* Sidebar */
+
+.sidebar{
+    position: fixed;
+    top: 80px;
+    left: 8px;
+
+    width: 340px;
+    height: calc(100vh - 88px);
+
+    background:#121212;
+    border-radius:12px;
+
+    padding:16px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:20px; /* khoảng cách đều giữa các thành phần */
+
+    overflow-y:auto;
+}
+
+/* Scrollbar */
+
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#555;
+    border-radius:20px;
+}
+
+/* Header */
+
+.library-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.library-header h3{
+    color:white;
+    font-size:15px;
+    font-weight:700;
+}
+
+.create-btn{
+    background:#1f1f1f;
+    color:white;
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.create-btn span{
+    font-size:18px;
+    margin-right:4px;
+}
+
+/* Card */
+
+.playlist-card{
+    background:#1f1f1f;
+    border-radius:12px;
+
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+    gap:12px; /* cách đều h4, p, button */
+}
+
+.playlist-card h4{
+    color:white;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.playlist-card p{
+    color:#b3b3b3;
+    font-size:12px;
+    line-height:1.4;
+    margin-bottom:16px;
+}
+
+.playlist-card button{
+    background:white;
+    color:black;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-size:13px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* Footer */
+
+.footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 15px;
+    padding-top:10px;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#b3b3b3;
+    font-size:10px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+/* Language */
+
+.language-btn{
+    margin-top:8px;
+
+    width:fit-content;
+
+    background:none;
+
+    border:1px solid #727272;
+
+    color:white;
+
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:12px;
+    font-weight:bold;
+}
