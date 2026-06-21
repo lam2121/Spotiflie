@@ -1,6 +1,7 @@
 package com.example.spotiflie.Service;
 
 import com.example.spotiflie.DTO.SpotifyItemDTO;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -18,8 +19,15 @@ import java.util.*;
 @Service
 public class SpotifyService {
 
-    private final String CLIENT_ID = "4abdd1b6743c49429f471b05995bedb0";
-    private final String CLIENT_SECRET = "d7bc0802753c460d812051472fb5825a";
+    @Value("${spotify.client.id}")
+    private String clientId;
+
+    @Value("${spotify.client.secret}")
+    private String clientSecret;
+
+    @Value("${spotify.redirect.uri}")
+    private String redirectUri;
+
     private final Map<String, List<AlbumDTO>> albumCache = new HashMap<>();
     private final Map<String, List<TrackDTO>> trackCache = new HashMap<>();
 
@@ -27,31 +35,23 @@ public class SpotifyService {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        String credentials =
-                CLIENT_ID + ":" + CLIENT_SECRET;
+        String credentials = clientId + ":" + clientSecret;
 
         String base64Credentials =
                 Base64.getEncoder()
                         .encodeToString(credentials.getBytes());
 
         HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        headers.set("Authorization", "Basic " + base64Credentials);
 
-        headers.setContentType(
-                MediaType.APPLICATION_FORM_URLENCODED);
-
-        headers.set(
-                "Authorization",
-                "Basic " + base64Credentials);
-
-        MultiValueMap<String, String> body =
-                new LinkedMultiValueMap<>();
+        MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
 
         body.add("grant_type", "authorization_code");
         body.add("code", code);
+        body.add("redirect_uri", redirectUri);
 
-        body.add(
-                "redirect_uri",
-                "https://starter-boil-dropbox.ngrok-free.dev/callback");
+        System.out.println("Redirect URI = " + redirectUri);
 
         HttpEntity<MultiValueMap<String, String>> request =
                 new HttpEntity<>(body, headers);
